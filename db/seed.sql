@@ -1,3 +1,4 @@
+-- customer_table
 CREATE TABLE customer 
 (
     cust_id SERIAL PRIMARY KEY,
@@ -7,7 +8,7 @@ CREATE TABLE customer
     password VARCHAR(180),
     address VARCHAR(300)
 )
-
+-- product_table
 CREATE TABLE product
 (
     prod_id SERIAL PRIMARY KEY,
@@ -17,7 +18,7 @@ CREATE TABLE product
     price DECIMAL,
     img TEXT
 )
-
+-- cart_table
 CREATE TABLE cart
 (
     cust_id INTEGER,
@@ -26,3 +27,24 @@ CREATE TABLE cart
     FOREIGN KEY (prod_id) REFERENCES product (prod_id),
     cart_id SERIAL PRIMARY KEY
 ) 
+-- getuser
+select * from customer
+
+-- find_user
+select *
+from customer
+where user_name = $1;
+
+-- create_customer
+INSERT INTO customer
+(user_name, password)
+VALUES 
+($1, $2) 
+returning *;
+
+-- dummy customer
+INSERT INTO customer
+(first_name, last_name, user_name, password, address)
+VALUES 
+('Dennis', 'Leprozo', 'dennis', 'd', '8975 West Warm Springs Road, LV NV') 
+returning *;

@@ -31,7 +31,7 @@ app.get('/auth/logout', controller.logout);
 
 
 app.get('/api/test', (req, res) => {
-    req.get('db').user.getuser()
+    req.get('db').user.get_user()
 })
 
 

@@ -9,17 +9,55 @@ module.exports = {
             3. insert into db
             4. put user data on session
             5. send back 200 w/ with data
-            */
-        let { email, password } = req.body;
+        */
         let db = req.app.get("db");
-        let foundUser = await db.find_user([email]);
+        let { username, userpassword } = req.body;
+
+        let foundUser = await db.customer.find_user([username]);
         if (foundUser[0])
-            return res.status(200).send({ message: "Email already in use" });
+            return res.status(200).send({ message: "User Name already in use" });
+// else
         let salt = bcrypt.genSaltSync(10);
-        let hash = bcrypt.hashSync(password, salt);
-        let [createdUser] = await db.create_customer([email, hash]);
-        req.session.user = {email: createdUser.cust_email};
+        let hash = bcrypt.hashSync(userpassword, salt);
+
+        let [createdUser] = await db.customer.create_customer([username, hash]);
+// created session and passed the new user to user_name in the db
+        req.session.user = {username: createdUser.user_name};
+
         res.status(200).send({ message: "loggedIn" });
+
+
+        // async signup(req, res) {
+        //     let { first_name, last_name, password, user_name, address } = req.body;
+        //     let db = req.app.get('db')
+
+        //     let [foundUser] = await db.find_profile(email);
+        //     if (foundUser) return res.status(200).send({ message: 'User Name already in use' })
+        //     let salt = bcrypt.genSaltSync(10);
+        //     let hash = bcrypt.hashSync(password, salt)
+        //     console.log(hash.length)
+        //     let [createUser] = await db.create_user([name, hash, email, bio, image])
+        //     req.session.user = {
+        //         id: createUser.profile_id,
+        //         name: createUser.name,
+        //         email: createUser.profile_email,
+        //         bio: createUser.profile_bio,
+        //         image: createUser.profile_image
+        //     }
+        //     res.status(200).send({message: 'Logged in.'})
+
+
+
+
+
+
+
+
+
+
+
+
+
     },
 
 
@@ -32,20 +70,21 @@ module.exports = {
             3. put logged in user on req.session
             4. send proper status
             */
-        let { email, password } = req.body;
         let db = req.app.get("db");
-        let [foundUser] = await db.find_user([email]);
+        let { username, userpassword } = req.body;
+
+        let [foundUser] = await db.customer.find_user([username]);
         if (foundUser) {
-            // compareSync returns either true or false
-            let result = bcrypt.compareSync(password, foundUser.cust_hash);
+// compareSync userpassword from passowrd db returns either true or false
+            let result = bcrypt.compareSync(userpassword, foundUser.password);
             if (result) {
-                req.session.user = {email: foundUser.cust_email};
+                req.session.user = {username: foundUser.user_name};
                 res.status(200).send({ message: "loggedIn" });
             } else {
-                res.status(401).send({ message: "Unauthorized: password incorrect" });
+                res.status(401).send({ message: "Unauthorized: Incorrect Password " });
             }
             } else {
-            res.status(401).send({ message: "Email not found." });
+            res.status(401).send({ message: "User Name not found." });
             }
     },
 
