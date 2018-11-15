@@ -1,14 +1,14 @@
--- customer_table
-CREATE TABLE customer 
+-- users_table_seed.sql
+create table users 
 (
-    cust_id SERIAL PRIMARY KEY,
-    first_name VARCHAR(100),
-    last_name VARCHAR(100),
-    user_name VARCHAR(100),
-    password VARCHAR(180),
-    address VARCHAR(300)
-)
--- product_table
+    id serial primary key,
+    user_name varchar(180),
+    email varchar(180),
+    picture text,
+    auth_id text
+);
+
+-- product.product_table.sql
 CREATE TABLE product
 (
     prod_id SERIAL PRIMARY KEY,
@@ -17,34 +17,31 @@ CREATE TABLE product
     rating VARCHAR(20),
     price DECIMAL,
     img TEXT
-)
--- cart_table
+);
+
+-- cart.cart_table.sql
 CREATE TABLE cart
 (
-    cust_id INTEGER,
+    id INTEGER,
     prod_id INTEGER,
-    FOREIGN KEY (cust_id) REFERENCES customer (cust_id),
+    FOREIGN KEY (id) REFERENCES users (id),
     FOREIGN KEY (prod_id) REFERENCES product (prod_id),
     cart_id SERIAL PRIMARY KEY
-) 
--- getuser
-select * from customer
+);
 
--- find_user
+-- get_user_by_id.sql
 select *
-from customer
-where user_name = $1;
+from users
+where id = 1;
 
--- create_customer
-INSERT INTO customer
-(user_name, password)
-VALUES 
-($1, $2) 
-returning *;
+-- find_user.sql
+select * 
+from users
+where auth_id = $1;
 
--- dummy customer
-INSERT INTO customer
-(first_name, last_name, user_name, password, address)
-VALUES 
-('Dennis', 'Leprozo', 'dennis', 'd', '8975 West Warm Springs Road, LV NV') 
-returning *;
+-- dummy db for users table
+-- INSERT INTO users
+-- (user_name, email, picture, auth_id)
+-- VALUES 
+-- ('Dennis Leprozo', 'dennisvleprozo@gmail.com', 'image_url', 'github|12345678') 
+-- returning *;

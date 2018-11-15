@@ -5,7 +5,7 @@
       "db/"
     ],
     "env": {
-      "NODE_ENV": "development"
+      "NODE_ENV": "dev"
     },
     "ext": "js json sql"
   }
