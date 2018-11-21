@@ -13,7 +13,7 @@ export default function reducer( state = initialState, action ) {
     }
 }
 
-// action 
+// returns action update user and payload
 export function updateUser(userObj) {
     return {
         type: UPDATE_USER,

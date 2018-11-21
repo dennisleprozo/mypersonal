@@ -39,7 +39,7 @@ app.get('/auth/callback', async (req, res) =>{
         code: req.query.code,
         grant_type: 'authorization_code',
         //auth reply to callback
-        redirect_uri: `https://${req.headers.host}/auth/callback`  
+        redirect_uri: `https://${req.headers.host}/auth/callback`
     }
 
 
@@ -63,6 +63,7 @@ app.get('/auth/callback', async (req, res) =>{
     // find user ? loggedIn : createUser
     let db = req.app.get('db')
     let foundUser = await req.app.get('db').find_user([sub])
+    // exists? set user to session
         if (foundUser[0]) {
             req.session.user = foundUser[0];
             res.redirect('/#/dashboard')
@@ -84,6 +85,7 @@ function envCheck(req, res, next) {
         }
     }
     
+    // user signed in? 200 : NOOOOO
     app.get('/api/user-data', envCheck, (req, res) => {
         if (req.session.user) {
         res.status(200).send(req.session.user);
@@ -92,17 +94,12 @@ function envCheck(req, res, next) {
         }
     })
     
+    //destroys session and redirect to any url
     app.get('/auth/logout', (req, res) => {
         req.session.destroy();
         res.redirect('http://localhost:3000/')
     })
 
-
-
-
-
-
-
 app.listen(SERVER_PORT, () =>
-    console.log(`Eavesdropping on SERVER_PORT ${SERVER_PORT}`)
+    console.log(`Eavesdropping on SERVER_PORT ${SERVER_PORT}...`)
 );

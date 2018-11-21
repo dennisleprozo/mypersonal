@@ -1,6 +1,22 @@
 import React, { Component } from 'react'
+import axios from 'axios';
+import { connect } from 'react-redux';
 
-export default class Dashboard extends Component {
+import { updateUser } from '../../dux/reducer';
+
+class Dashboard extends Component {
+  constructor(props) {
+    super(props);
+
+  }
+
+  // mounts the userData first
+async componentDidMount() {
+  let userData = await axios.get('./api/user-data')
+  
+  this.props.updateUser(userData.data)
+}
+
   render() {
     return (
       <div>
@@ -9,3 +25,9 @@ export default class Dashboard extends Component {
     )
   }
 }
+
+
+function mapStateToProps() {
+  return
+}
+export default connect (mapStateToProps)(Dashboard)
