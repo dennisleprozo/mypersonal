@@ -3,7 +3,7 @@ const express = require("express");
 const session = require('express-session');
 const massive = require('massive');
 const bodyParser = require("body-parser");
-const controller = require('./controller');
+// const controller = require('./controller');
 
 const axios = require('axios');
 
