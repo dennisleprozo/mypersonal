@@ -11,7 +11,7 @@ const axios = require('axios');
 const app = express();
 app.use(express.json());
 
-// dest process.env
+// destruct process.env
 const { SERVER_PORT, MASSIVE_CONNECTION, SESSION_SECRET,
         REACT_APP_CLIENT_ID, REACT_APP_DOMAIN,
         CLIENT_SECRET, NODE_ENV } = process.env;
@@ -22,8 +22,7 @@ massive(MASSIVE_CONNECTION).then(db => {
 }) 
 
 // middleware session 
-app.use(
-    session({
+app.use(session({
         resave: false,
         saveUninitialized: false,
         secret: SESSION_SECRET
@@ -97,7 +96,7 @@ function envCheck(req, res, next) {
     //destroys session and redirect to any url
     app.get('/auth/logout', (req, res) => {
         req.session.destroy();
-        res.redirect('http://localhost:3000/')
+        res.redirect('http://localhost/logout')
     })
 
 app.listen(SERVER_PORT, () =>
