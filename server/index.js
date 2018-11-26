@@ -31,12 +31,15 @@ app.use(session({
     })
 );
 
-// get auth endpoint
+
+
+
+// get auth0  endpoint
 app.get('/auth/callback', async (req, res) =>{
     // uses code from req in payload for a token
-    console.log('test string')
+    // console.log('test string')
     try {
-
+    // try catch error 
     
     const payload = {
         client_id: REACT_APP_CLIENT_ID,
@@ -51,7 +54,7 @@ app.get('/auth/callback', async (req, res) =>{
 // waiting...
 
 
-    // sends code, wait for token
+    // posts code in payload, wait for token
     let resWithToken = await axios.post(`https://${REACT_APP_DOMAIN}/oauth/token`, payload)
 
     // response with token
@@ -68,14 +71,14 @@ app.get('/auth/callback', async (req, res) =>{
     // find user ? loggedIn : createUser
     let db = req.app.get('db')
     let foundUser = await req.app.get('db').find_user([sub])
-    // exists? set user to session
+    // exists? set user session
         if (foundUser[0]) {
             req.session.user = foundUser[0];
-            res.redirect('/#/dashboard')
+            res.redirect('/dashboard')
         } else {
             let createdUser = await db.create_user([name, email, picture, sub])
             req.session.user = createdUser[0];
-            res.redirect('/#/dashboard')
+            res.redirect('/dashboard')
         }
     
 
@@ -110,7 +113,7 @@ function envCheck(req, res, next) {
     //destroys session and redirect to any url
     app.get('/auth/logout', (req, res) => {
         req.session.destroy();
-        res.redirect('http://localhost/logout')
+        res.redirect('https://dennisleprozo.com/')
     })
 
 app.listen(SERVER_PORT, () =>
