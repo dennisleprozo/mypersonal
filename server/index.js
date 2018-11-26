@@ -14,7 +14,9 @@ app.use(express.json());
 // destruct process.env
 const { SERVER_PORT, MASSIVE_CONNECTION, SESSION_SECRET,
         REACT_APP_CLIENT_ID, REACT_APP_DOMAIN,
-        CLIENT_SECRET, NODE_ENV } = process.env;
+        CLIENT_SECRET, NODE_ENV, AUTH0_PROTOCOL } = process.env;
+
+
 
 massive(MASSIVE_CONNECTION).then(db => {
     app.set('db', db);
@@ -32,13 +34,17 @@ app.use(session({
 // get auth endpoint
 app.get('/auth/callback', async (req, res) =>{
     // uses code from req in payload for a token
+    console.log('test string')
+    try {
+
+    
     const payload = {
         client_id: REACT_APP_CLIENT_ID,
         client_secret: CLIENT_SECRET, 
         code: req.query.code,
         grant_type: 'authorization_code',
         //auth reply to callback
-        redirect_uri: `https://${req.headers.host}/auth/callback`
+        redirect_uri: `${AUTH0_PROTOCOL}://${req.headers.host}/auth/callback`
     }
 
 
@@ -71,7 +77,15 @@ app.get('/auth/callback', async (req, res) =>{
             req.session.user = createdUser[0];
             res.redirect('/#/dashboard')
         }
+    
+
+    } catch(err) {
+        console.log('error handling in progress', err)
+    }
+
 })
+
+
 
 function envCheck(req, res, next) {
     if (NODE_ENV === 'dev') {

@@ -19,6 +19,7 @@ export default class Login extends Component {
             <div className='login-container'>
                 <img className='company-logo' src={logo} alt="" />
                 <button className='button' onClick={this.login}>Log in</button>
+                
                 <a href='http://localhost:3000/auth/logout'>
                     <button>
                         Log out
