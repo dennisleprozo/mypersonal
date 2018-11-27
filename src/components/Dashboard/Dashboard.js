@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { updateUser } from '../../dux/reducer';
-// import Login from '../Login/Login';
+import Login from '../Login/Login';
+import SignUp from '../SignUp/SignUp';
+
 import { Nav, Navbar, NavItem, NavDropdown, MenuItem, 
         FormGroup, FormControl
        } from 'react-bootstrap';
@@ -92,23 +94,37 @@ class Dashboard extends Component {
               </form> 
             </NavItem>
 
-
             <NavItem eventKey={7}> 
               <span className="fa_search">
-                <i class="fas fa-search"></i>
+                <i className="fas fa-search"></i>
               </span>            
             </NavItem>
 
             <NavItem eventKey={8}> 
               <span className="fa_cart">
-                <i class="fas fa-cart-arrow-down"></i>             
-              </span>            
-            </NavItem>
-
-            {/* <NavItem eventKey={9}> <Login /> </NavItem> */}
-
+                <i className="fas fa-cart-arrow-down" placement="left"></i>             
+              </span>  
+              </NavItem>          
+        
           </Nav>
         </Navbar>
+
+    {/* small nav */}
+        <Navbar>
+          <Nav>
+            <NavItem eventKey={1} href="http://localhost:3000/shipping">Free shipping on orders over $150. </NavItem>
+            <NavItem eventKey={2} style={{fontWeight: "bold", textDecoration:"underline"}}>Details</NavItem>
+            <NavItem eventKey={3} href="http://localhost:3000/storelocator">Store Locator</NavItem>
+            <NavItem eventKey={4} href="http://localhost:3000/faq">FAQ</NavItem>
+            <NavItem eventKey={5} ><Login/></NavItem>
+            <NavItem eventKey={6} ><SignUp/></NavItem>
+            <NavItem eventKey={7} href="http://localhost:3000/contact">Contact</NavItem>
+          </Nav>
+        </Navbar>
+
+
+
+            {/* <NavItem eventKey={9}> <Login /> </NavItem> */}
 
       </div>
 
