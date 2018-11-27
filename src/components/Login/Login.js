@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './login.css'
-import logo from './logo.PNG';
 
 export default class Login extends Component {
     
@@ -16,15 +15,7 @@ export default class Login extends Component {
     
     render() {
         return (
-            <div className='login-container'>
-                <img className='company-logo' src={logo} alt="" />
-                <button className='button' onClick={this.login}>Log in</button>
-                
-                <a href='http://localhost:3000/auth/logout'>
-                    <button>
-                        Log out
-                    </button>
-                </a>
+            <div onClick={this.login}>Log in
             </div>
         )
     }

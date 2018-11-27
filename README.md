@@ -1,3 +1,5 @@
+tick the pencil on right side to view the Sheet! -->
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 BOOTSTRAP CSS Complete Cheat Sheet
