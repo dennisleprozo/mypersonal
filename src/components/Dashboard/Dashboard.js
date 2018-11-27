@@ -37,7 +37,7 @@ class Dashboard extends Component {
   render() {
     return (
       <div>
-        <Navbar>
+        <Navbar className="navbar_font" style={{margin: 0}}>
           <Navbar.Header>
             <Navbar.Brand>
               <a href="dashboard">GOTHIC APPAREL</a>
@@ -76,6 +76,8 @@ class Dashboard extends Component {
 
             <NavItem eventKey={5} href="http://localhost:3000/about">ABOUT </NavItem>
 
+          </Nav>
+          <Nav pullRight>
             <NavItem eventKey={6}> 
               <form>
                 <FormGroup
@@ -114,6 +116,8 @@ class Dashboard extends Component {
           <Nav>
             <NavItem eventKey={1} href="http://localhost:3000/shipping">Free shipping on orders over $150. </NavItem>
             <NavItem eventKey={2} style={{fontWeight: "bold", textDecoration:"underline"}}>Details</NavItem>
+          </Nav>
+          <Nav pullRight>
             <NavItem eventKey={3} href="http://localhost:3000/storelocator">Store Locator</NavItem>
             <NavItem eventKey={4} href="http://localhost:3000/faq">FAQ</NavItem>
             <NavItem eventKey={5} ><Login/></NavItem>

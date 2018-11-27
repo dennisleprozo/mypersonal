@@ -3,17 +3,28 @@
    margin: 0px;
 }
 
-.fa_search {
-   font-size: 18px; 
-   color: rgb(96, 118, 154);
-   position: relative;
-   text-align: left;
+.navbar_font {
+   color: black;
+   background-color: rgb(10, 43, 73);
+}
 
+.fa_search {
+   font-size: 16px; 
+   color: rgb(59, 78, 110);
+   display: flex;
+   position: absolute;
+   top: 20px;
+   left: -10px;
+   bottom: 0px;
+   
 }
 
 .fa_cart {
-   font-size: 25px; 
-   color: rgb(22, 47, 90);
-   text-align: right;
+   font-size: 28px; 
+   color: rgb(13, 22, 37);
+   padding: 0px;
+   display: flex;
+   position: relative;
+   left: 0px;
 
 }
