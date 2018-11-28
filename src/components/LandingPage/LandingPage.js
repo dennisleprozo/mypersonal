@@ -7,7 +7,7 @@ import '../Dashboard/Dashboard.css';
 class LandingPage extends Component {
    render() {
       return (
-         <div>
+         // <div>
           <Carousel>
                <Carousel.Item>
                   <div className="carousel-item" style={{backgroundImage: 'url(Images/gal1.jpg)'}} />
@@ -80,9 +80,9 @@ class LandingPage extends Component {
                      </Carousel.Caption>
                </Carousel.Item>    
 
-             </Carousel>;
+             </Carousel>
 
-         </div>
+         // </div>
       );
    }
 }

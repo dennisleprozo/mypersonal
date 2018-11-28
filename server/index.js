@@ -3,7 +3,7 @@ const express = require("express");
 const session = require('express-session');
 const massive = require('massive');
 const bodyParser = require("body-parser");
-// const controller = require('./controller');
+const controller = require('./controller');
 
 const axios = require('axios');
 
@@ -101,7 +101,7 @@ function envCheck(req, res, next) {
         }
     }
     
-    // user signed in? 200 : NOOOOO
+    // Check for signed in? 200 : NOOOOO
     app.get('/api/user-data', envCheck, (req, res) => {
         if (req.session.user) {
         res.status(200).send(req.session.user);
@@ -110,11 +110,21 @@ function envCheck(req, res, next) {
         }
     })
     
-    //destroys session and redirect to any url
+    //Logout destroys session and redirect to any url
     app.get('/auth/logout', (req, res) => {
         req.session.destroy();
         res.redirect('https://dennisleprozo.com/')
     })
+
+
+
+
+
+//-- product endpoints --//
+app.get('/api/get_all_products', controller.read)
+
+
+
 
 app.listen(SERVER_PORT, () =>
     console.log(`Eavesdropping on SERVER_PORT ${SERVER_PORT}...`)
