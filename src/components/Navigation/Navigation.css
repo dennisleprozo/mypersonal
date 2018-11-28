@@ -1,0 +1,63 @@
+/* CSS for Dashboard navbar */
+.form_align {
+   padding: 10px;
+   margin: 0px;
+ }
+ 
+ .navbar_font {
+   background-color: #333;
+   position: fixed;
+   width: 100%;
+   position: fixed;
+   top: 0;
+   z-index: 10;
+   color: black;
+   background-color: rgb(10, 43, 73);
+ }
+ 
+ .fa_search {
+   font-size: 16px;
+   color: rgb(59, 78, 110);
+   display: flex;
+   position: absolute;
+   top: 20px;
+   left: -10px;
+   bottom: 0px;
+ }
+ 
+ .fa_cart {
+   font-size: 28px;
+   color: rgb(13, 22, 37);
+   padding: 0px;
+   display: flex;
+   position: relative;
+   left: 0px;
+ }
+ 
+ .dashboard-container {
+   padding-top: 79px;
+ }
+ 
+ .navbar {
+    margin: 0;
+ }
+
+
+
+
+ /* CSS for sub menu */
+
+ .details {
+   padding: 0px;
+   display: flex;
+   position: absolute;
+   top: 0px;
+   left: -22px;
+   bottom: 0px;
+}
+
+.carousel-item {
+   background-size: cover;
+   width: 100%;
+   height: 900px;
+}
