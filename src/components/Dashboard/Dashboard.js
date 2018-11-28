@@ -28,7 +28,7 @@ class Dashboard extends Component {
 
   getValidationState() {
     const length = this.state.value.length;
-    if (length > 10) return "success";
+    if (length > 8) return "success";
     else if (length > 5) return "warning";
     else if (length > 0) return "error";
     return null;
@@ -55,20 +55,20 @@ class Dashboard extends Component {
                 title="MEN"
               >
                 <MenuItem eventKey={1.1}>
-                  <i class="fa fa-angle-right" aria-hidden="true" /> FEATURED{" "}
+                  {/* <i class="fa fa-angle-right" aria-hidden="true" />  */} FEATURED{" "}
                 </MenuItem>
+
                 <MenuItem eventKey={1.2}>
                   <i class="fa fa-angle-right" aria-hidden="true" /> TORSO{" "}
                 </MenuItem>
+
+
                 <MenuItem eventKey={1.3}>
                   <i class="fa fa-angle-right" aria-hidden="true" /> LEGS{" "}
                 </MenuItem>
                 <MenuItem eventKey={1.4}>
                   {" "}
-                  <i
-                    class="fa fa-angle-right"
-                    aria-hidden="true"
-                  /> ACCESSORIES{" "}
+                  <i class="fa fa-angle-right" aria-hidden="true" /> ACCESSORIES{" "}
                 </MenuItem>
               </NavDropdown>
 
@@ -79,9 +79,9 @@ class Dashboard extends Component {
                 title="WOMEN"
               >
                 <MenuItem eventKey={2.1}>FEATURED</MenuItem>
-                <MenuItem eventKey={2.2}>TOP</MenuItem>
-                <MenuItem eventKey={2.3}>LEGS</MenuItem>
-                <MenuItem eventKey={2.4}>ACCESSORIES</MenuItem>
+                <MenuItem eventKey={2.2}><i class="fa fa-angle-right" aria-hidden="true" />TOP</MenuItem>
+                <MenuItem eventKey={2.3}><i class="fa fa-angle-right" aria-hidden="true" />LEGS</MenuItem>
+                <MenuItem eventKey={2.4}><i class="fa fa-angle-right" aria-hidden="true" />ACCESSORIES</MenuItem>
               </NavDropdown>
               <NavDropdown
                 noCaret
@@ -90,9 +90,9 @@ class Dashboard extends Component {
                 title="ACCESSORIES"
               >
                 <MenuItem eventKey={3.1}>FEATURED</MenuItem>
-                <MenuItem eventKey={3.2}>MEN</MenuItem>
-                <MenuItem eventKey={3.3}>WOMEN</MenuItem>
-                <MenuItem eventKey={3.4}>ACCESSORIES</MenuItem>
+                <MenuItem eventKey={3.2}><i class="fa fa-angle-right" aria-hidden="true" />MEN</MenuItem>
+                <MenuItem eventKey={3.3}><i class="fa fa-angle-right" aria-hidden="true" />WOMEN</MenuItem>
+                <MenuItem eventKey={3.4}><i class="fa fa-angle-right" aria-hidden="true" />ACCESSORIES</MenuItem>
               </NavDropdown>
               <NavDropdown
                 noCaret
@@ -101,9 +101,9 @@ class Dashboard extends Component {
                 title="HOTLIST"
               >
                 <MenuItem eventKey={4.1}>FEATURED</MenuItem>
-                <MenuItem eventKey={4.2}>MEN</MenuItem>
-                <MenuItem eventKey={4.3}>WOMEN</MenuItem>
-                <MenuItem eventKey={4.4}>ACCESSORIES</MenuItem>
+                <MenuItem eventKey={4.2}><i class="fa fa-angle-right" aria-hidden="true" />MEN</MenuItem>
+                <MenuItem eventKey={4.3}><i class="fa fa-angle-right" aria-hidden="true" />WOMEN</MenuItem>
+                <MenuItem eventKey={4.4}><i class="fa fa-angle-right" aria-hidden="true" />ACCESSORIES</MenuItem>
               </NavDropdown>
 
               <NavItem eventKey={5} href="http://localhost:3000/about">
@@ -143,13 +143,9 @@ class Dashboard extends Component {
               </NavItem>
             </Nav>
           </Navbar>
-
+        {/* sub navbar here */}
         <LandingPage />
 
-        {/* sub navbar here */}
-        {/* <div>
-          
-        </div> */}
       </div> //end div
     ); //return
   } //render

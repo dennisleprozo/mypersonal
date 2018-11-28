@@ -35,73 +35,73 @@ class LandingPage extends Component {
 
           <Carousel>
                <Carousel.Item>
-                  <div className="carousel-item" style={{backgroundImage: 'url(Images/model_slide-1.jpg)'}} />
+                  <div className="carousel-item" style={{backgroundImage: 'url(Images/gal1.jpg)'}} />
                      <Carousel.Caption>
                         <h1>GOTHIC APPAREL</h1>
-                        <p>Features London Summer Collection</p>
+                        <h3>Features London Winter Collection</h3>
                      </Carousel.Caption>
                </Carousel.Item>
                <Carousel.Item>
-                  <div className="carousel-item" style={{backgroundImage: 'url(Images/model_slide-2.jpg)'}} />
+                  <div className="carousel-item" style={{backgroundImage: 'url(Images/gal2.jpg)'}} />
                      <Carousel.Caption>
                         <h1>GOTHIC APPAREL</h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <h3>Party Night Dress</h3>
                      </Carousel.Caption>
                </Carousel.Item>
                <Carousel.Item>
-               <div className="carousel-item" style={{backgroundImage: 'url(Images/model_slide-3.jpg)'}} />
+               <div className="carousel-item" style={{backgroundImage: 'url(Images/gal3.jpg)'}} />
                      <Carousel.Caption>
                         <h1>GOTHIC APPAREL</h1>
-                        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                        <h3>Casual Taco Tuesday</h3>
                      </Carousel.Caption>
                </Carousel.Item>
                <Carousel.Item>
-               <div className="carousel-item" style={{backgroundImage: 'url(Images/model_slide-4.jpg)'}} />
+               <div className="carousel-item" style={{backgroundImage: 'url(Images/men1.jpg)'}} />
                      <Carousel.Caption>
                         <h1>GOTHIC APPAREL</h1>
-                        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                        <h3>Men Black Leather Classic Collection</h3>
                      </Carousel.Caption>
                </Carousel.Item>
                <Carousel.Item>
-               <div className="carousel-item" style={{backgroundImage: 'url(Images/model_slide-5.jpg)'}} />
+               <div className="carousel-item" style={{backgroundImage: 'url(Images/gal4.jpg)'}} />
                      <Carousel.Caption>
                         <h1>GOTHIC APPAREL</h1>
-                        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                        <h3>Comfortable Street Wear</h3>
                      </Carousel.Caption>
                </Carousel.Item>
                <Carousel.Item>
-               <div className="carousel-item" style={{backgroundImage: 'url(Images/model_slide-6.jpg)'}} />
+               <div className="carousel-item" style={{backgroundImage: 'url(Images/gal6.jpg)'}} />
                      <Carousel.Caption>
                         <h1>GOTHIC APPAREL</h1>
-                        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                        <h3>Women Athletic Pants And Bottoms</h3>
                      </Carousel.Caption>
                </Carousel.Item>
                <Carousel.Item>
-               <div className="carousel-item" style={{backgroundImage: 'url(Images/model_slide-7.jpg)'}} />
+               <div className="carousel-item" style={{backgroundImage: 'url(Images/gal8.jpg)'}} />
                      <Carousel.Caption>
                         <h1>GOTHIC APPAREL</h1>
-                        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                        <h3>Women Accessories Statement Jewelries</h3>
                      </Carousel.Caption>
                </Carousel.Item>    
                <Carousel.Item>
-               <div className="carousel-item" style={{backgroundImage: 'url(Images/model_slide-8.jpg)'}} />
+               <div className="carousel-item" style={{backgroundImage: 'url(Images/gal5.jpg)'}} />
                      <Carousel.Caption>
                         <h1>GOTHIC APPAREL</h1>
-                        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                        <h3>Gal Casual Riding Attire</h3>
                      </Carousel.Caption>
                </Carousel.Item>   
                <Carousel.Item>
-               <div className="carousel-item" style={{backgroundImage: 'url(Images/model_slide-9.jpg)'}} />
+               <div className="carousel-item" style={{backgroundImage: 'url(Images/gal9.jpg)'}} />
                      <Carousel.Caption>
                         <h1>GOTHIC APPAREL</h1>
-                        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                        <h3>Women Leather Collection L.A. Style</h3>
                      </Carousel.Caption>
                </Carousel.Item>
                <Carousel.Item>
-               <div className="carousel-item" style={{backgroundImage: 'url(Images/model_slide-10.jpg)'}} />
+               <div className="carousel-item" style={{backgroundImage: 'url(Images/gagal10.png)'}} />
                      <Carousel.Caption>
                         <h1>GOTHIC APPAREL</h1>
-                        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                        <h3>Studded Lady Leather Collection</h3>
                      </Carousel.Caption>
                </Carousel.Item>    
 
