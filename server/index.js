@@ -44,7 +44,6 @@ app.use( express.static( `${__dirname}/../build` ) );
 app.get('/auth/callback', async (req, res) =>{
     // uses code from req in payload for a token
     // console.log('test string')
-    console.log('/auth/callback')
     try {
     // try catch error 
     
@@ -56,9 +55,6 @@ app.get('/auth/callback', async (req, res) =>{
         //auth reply to callback
         redirect_uri: `${AUTH0_PROTOCOL}://${req.headers.host}/auth/callback`
     }
-    console.log(payload)
-    console.log(REACT_APP_DOMAIN)
-    console.log('before token')
     
     
     // waiting...
@@ -66,15 +62,12 @@ app.get('/auth/callback', async (req, res) =>{
     
     // posts code in payload, wait for token
     let resWithToken = await axios.post(`https://${REACT_APP_DOMAIN}/oauth/token`, payload)
-    console.log('after token')
     // response with token
-    console.log(resWithToken.data);
 
     // fetch token with access 
     let resWithUserData = await axios.get(`https://${REACT_APP_DOMAIN}/userinfo?access_token=${resWithToken.data.access_token}`)
 
     // response with user data
-    console.log('user data', resWithUserData);
 
     let { email, name, picture, sub } = resWithUserData.data;
 
@@ -84,15 +77,15 @@ app.get('/auth/callback', async (req, res) =>{
     // exists? set user session
         if (foundUser[0]) {
             req.session.user = foundUser[0];
-            res.redirect('/dashboard')
+            res.redirect('/#/dashboard')
         } else {
             let createdUser = await db.create_user([name, email, picture, sub])
             req.session.user = createdUser[0];
-            res.redirect('/dashboard')
+            res.redirect('/#/dashboard')
         }
     
     } catch(err) {
-        console.log('error handling in progress', err)
+        console.log('error handling in progress', err);
     }
 
 })
