@@ -13,7 +13,7 @@ class Men extends Component {
       this.state = {
          products: []
       }
-      this.addToCart = this.addToCart.bind(this)
+      // this.addToCart = this.addToCart.bind(this)
    }
 
    componentDidMount() {
