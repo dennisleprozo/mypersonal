@@ -22,7 +22,7 @@ export default (props) => {
                   <Thumbnail style={{padding:"30px"}} src={props.product.img2} alt="242x200">
                   <h3>Back View </h3>
                   <h4>Rating: { props.product.rating }</h4>
-                  <p><h4>Description: {props.product.description} </h4> </p>
+                  <p>Description: {props.product.description} </p>
                   </Thumbnail>
                </Col>
             </Row>

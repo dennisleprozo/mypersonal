@@ -17,20 +17,12 @@ class Men extends Component {
    }
 
    componentDidMount() {
-      axios.get('./api/get_all_products')
+      axios.get('./api/getAll')
          .then(res => this.setState({products: res.data}))
          console.log(this.state.products)
    }
 
-    addToCart(product){
-       
-      console.log('product', product)
-      console.log(`Added ${product.prod_name} to order. `)
-
-      axios.post('/add', product).then(res => {
-         console.log(res.data)
-      })
-   }
+    
 
    render() {
 
@@ -77,13 +69,7 @@ class Men extends Component {
 
          {/* Products renderer */}
 
-         <div className="displayProducts">
-            {displayProducts}
-            
-         </div>
-
-
-
+         <div className="displayProducts"> {displayProducts} </div>
 
          </div>
       );

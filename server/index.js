@@ -120,16 +120,13 @@ function envCheck(req, res, next) {
     })
 
 
+
+
 //-- products endpoints --//
 app.get('/api/getAll', controller.read)
 
 // addToCart endpoints
 app.post('/api/cart/:prodId', controller.addToCart)
-
-
-
-
-
 
 
 

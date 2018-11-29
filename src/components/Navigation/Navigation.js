@@ -66,20 +66,18 @@ class Navigation extends Component {
                 </MenuItem>
                 <MenuItem divider />
                 <MenuItem eventKey={1.2}>
-                  <Link to="/men">
-                    TORSO
-                  </Link>
+                    <Link to="/men">
+                      TORSO
+                    </Link>
                 </MenuItem>
 
                 <MenuItem eventKey={1.3}>
-                  
                     <Link to="/men">
                       LEGS{" "}
                     </Link>  
                 </MenuItem>
 
                 <MenuItem eventKey={1.4}>
-                     
                     <Link to="/men">
                       ACCESSORIES{" "}
                     </Link>  
