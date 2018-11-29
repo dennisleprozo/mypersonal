@@ -77,11 +77,11 @@ app.get('/auth/callback', async (req, res) =>{
     // exists? set user session
         if (foundUser[0]) {
             req.session.user = foundUser[0];
-            res.redirect('/#/dashboard')
+            res.redirect('/#/')
         } else {
             let createdUser = await db.create_user([name, email, picture, sub])
             req.session.user = createdUser[0];
-            res.redirect('/#/dashboard')
+            res.redirect('/#/')
         }
     
     } catch(err) {
