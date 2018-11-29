@@ -1,8 +1,8 @@
-CREATE TABLE cart
-(
-    id INTEGER,
-    prod_id INTEGER,
-    FOREIGN KEY (id) REFERENCES users (id),
-    FOREIGN KEY (prod_id) REFERENCES product (prod_id),
-    cart_id SERIAL PRIMARY KEY
+CREATE TABLE carts (
+cart_id SERIAL PRIMARY KEY, 
+prod_id INTEGER REFERENCES product (prod_id), 
+users_id INTEGER REFERENCES users (users_id),
+order_id INTEGER REFERENCES orders (order_id),
+quantity INTEGER, 
+price DECIMAL
 );

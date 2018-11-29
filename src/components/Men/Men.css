@@ -2,9 +2,13 @@
    margin: 0;
    padding: 50px;
    text-align: center;
-   background-color: rgb(0, 144, 240);
+   background-color: rgb(53, 91, 118);
    font-size: 40px;
-   color: rgb(253, 247, 190);
-   margin-bottom: 20px;
+   color: rgb(255, 255, 255);
 }
 
+.carousel-item {
+   background-size: cover;
+   width: 100%;
+   height: 500px;
+}

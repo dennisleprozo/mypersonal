@@ -1,3 +1,3 @@
-select * 
-from users
-where auth_id = $1;
+SELECT * 
+FROM users
+WHERE auth_id = $1;

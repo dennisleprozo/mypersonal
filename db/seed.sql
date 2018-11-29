@@ -23,14 +23,21 @@ CREATE TABLE product
 );
 
 -- cart.cart_table.sql and product
-CREATE TABLE cart
-(
-    users_id INTEGER,
-    prod_id INTEGER,
-    FOREIGN KEY (users_id) REFERENCES users(id),
-    FOREIGN KEY (prod_id) REFERENCES product(prod_id),
-    cart_id SERIAL PRIMARY KEY
+CREATE TABLE carts (
+cart_id serial primary key, 
+prod_id integer REFERENCES product (prod_id), 
+users_id integer REFERENCES users (users_id),
+order_id integer REFERENCES orders (order_id),
+quantity integer, 
+price decimal
 );
+
+-- orders.orders_table
+CREATE TABLE orders (
+order_id serial primary key,
+prod_id integer REFERENCES product (prod_id), 
+users_id integer REFERENCES users (users_id)
+)
 
 -- get_user_by_id.sql
 select *
@@ -49,39 +56,47 @@ where auth_id = $1;
 -- ('Dennis Leprozo', 'dennisvleprozo@gmail.com', 'image_url', 'github|12345678') 
 -- returning *;
 
--- add back view image
+-- back view image
 ALTER TABLE product
 ADD img2 text;
 
 ALTER TABLE product
 ADD prod_name VARCHAR(100);
 
-INSERT INTO product(prod_type, description, rating, price, img, img2, prod_name)
-VALUES('Men Torso', 
-        ' A black casual sweat shirt. This hooded shirt basic shirt matches any jeans and sweat pants.',
-        'fair', 
-        25.00,
-        'https://demo.w3layouts.com/demos_new/17-01-2017/groovy_apparel-demo_Free/435669694/web/images/8-front.jpg',
-        'https://demo.w3layouts.com/demos_new/17-01-2017/groovy_apparel-demo_Free/435669694/web/images/8-back.jpg',
-        'The Bae'
-        );
+-- INSERT INTO product(prod_type, description, rating, price, img, img2, prod_name)
+-- VALUES('Men Torso', 
+-- ' A black casual sweat shirt. This hooded shirt basic shirt matches any jeans and sweat pants.',
+-- 'fair', 
+-- 25.00,
+-- 'https://demo.w3layouts.com/demos_new/17-01-2017/groovy_apparel-demo_Free/435669694/web/images/8-front.jpg',
+-- 'https://demo.w3layouts.com/demos_new/17-01-2017/groovy_apparel-demo_Free/435669694/web/images/8-back.jpg',
+-- 'The Bae'
+--  );
 
 
-INSERT INTO product(prod_type, description, rating, price, img, img2, prod_name)
-VALUES('Men Torso', 
-'An essential wardrobe staple, this sweatshirt is built from washed brushed cotton for a clean finish.',
-'superb', 
-20.00,
-'https://demo.w3layouts.com/demos_new/17-01-2017/groovy_apparel-demo_Free/435669694/web/images/1-front.jpg',
-'https://demo.w3layouts.com/demos_new/17-01-2017/groovy_apparel-demo_Free/435669694/web/images/1-back.jpg',
-'Robin Hoodie');
+-- INSERT INTO product(prod_type, description, rating, price, img, img2, prod_name)
+-- VALUES('Men Torso', 
+-- 'An essential wardrobe staple, this sweatshirt is built from washed brushed cotton for a clean finish.',
+-- 'superb', 
+-- 20.00,
+-- 'https://demo.w3layouts.com/demos_new/17-01-2017/groovy_apparel-demo_Free/435669694/web/images/1-front.jpg',
+-- 'https://demo.w3layouts.com/demos_new/17-01-2017/groovy_apparel-demo_Free/435669694/web/images/1-back.jpg',
+-- 'Robin Hoodie');
 
  
-INSERT INTO product(prod_type, description, rating, price, img, img2, prod_name)
-VALUES('Men Torso', 
-'This pure cotton sweatshirt is built with a tonal stripe down the sleeves and subtle destroyed detailing at the collar. It is embellished with embroidery in metallic thread.',
-'good', 
-35.00,
-'https://demo.w3layouts.com/demos_new/17-01-2017/groovy_apparel-demo_Free/435669694/web/images/2-front.jpg',
-'https://demo.w3layouts.com/demos_new/17-01-2017/groovy_apparel-demo_Free/435669694/web/images/2-back.jpg', 'Dark Night' )
+-- INSERT INTO product(prod_type, description, rating, price, img, img2, prod_name)
+-- VALUES('Men Torso', 
+-- 'This pure cotton sweatshirt is built with a tonal stripe down the sleeves and subtle destroyed detailing at the collar. It is embellished with embroidery in metallic thread.',
+-- 'good', 
+-- 35.00,
+-- 'https://demo.w3layouts.com/demos_new/17-01-2017/groovy_apparel-demo_Free/435669694/web/images/2-front.jpg',
+-- 'https://demo.w3layouts.com/demos_new/17-01-2017/groovy_apparel-demo_Free/435669694/web/images/2-back.jpg', 'Dark Night' )
 
+
+
+-- get user with cart
+SELECT p.prod_id, p.price, p.img, p.prod_name, p.description, c.quantity, c.cart_id
+FROM carts c
+JOIN product p ON p.prod_id = c.prod_id
+WHERE users_id = $1
+ORDER BY p.prod_id;

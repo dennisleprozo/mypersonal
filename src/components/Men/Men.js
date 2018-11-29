@@ -4,6 +4,7 @@ import { Carousel } from 'react-bootstrap';
 import axios from 'axios';
 import ProductsRenderer from './ProductsRenderer';
 import './Men.css'
+import './ProductsRenderer.css'
 
 
 class Men extends Component {
@@ -12,6 +13,7 @@ class Men extends Component {
       this.state = {
          products: []
       }
+      this.addToCart = this.addToCart.bind(this)
    }
 
    componentDidMount() {
@@ -20,12 +22,20 @@ class Men extends Component {
          console.log(this.state.products)
    }
 
-
+    addToCart(product){
+      console.log('product', product)
+      console.log(`Added ${product.prod_name} to order. `)
+      axios.post('/add', product).then(res => {
+         console.log(res.data)
+      })
+   }
 
    render() {
+
       let displayProducts = this.state.products.map( (product, i) => {
          return (
-            <ProductsRenderer key={i} product={product} />
+            <ProductsRenderer key={i} product={product} 
+            addToCart={this.addToCart} />
          )
       })
 
@@ -37,24 +47,24 @@ class Men extends Component {
              {/* Carousel */}
              <Carousel>
                <Carousel.Item>
-                  <div className="carousel-item" style={{backgroundImage: 'url(Images/about-image-1.jpg)'}} />
+                  <div className="carousel-item" responsive='true' style={{backgroundImage: 'url(Images/ems.jpg)'}} />
                      <Carousel.Caption>
                         <h1>GOTHIC APPAREL</h1>
-                        <h3>Casual Riders Collection</h3>
+                        <h3>Formal Collection</h3>
                      </Carousel.Caption>
                </Carousel.Item>
                <Carousel.Item>
-                  <div className="carousel-item" style={{backgroundImage: 'url(Images/about-image-2.jpg)'}} />
+                  <div className="carousel-item" responsive='true' style={{backgroundImage: 'url(Images/yeezy-boost-700-mauve-wallpaper-4k.jpg)'}} />
                      <Carousel.Caption>
                         <h1>GOTHIC APPAREL</h1>
-                        <h3>Everyday Commute Wash and Wear</h3>
+                        <h3>Kicks</h3>
                      </Carousel.Caption>
                </Carousel.Item>
                <Carousel.Item>
-               <div className="carousel-item" style={{backgroundImage: 'url(Images/about-image-4.jpg)'}} />
+               <div className="carousel-item" responsive='true' style={{backgroundImage: 'url(Images/watch.jpg)'}} />
                      <Carousel.Caption>
                         <h1>GOTHIC APPAREL</h1>
-                        <h3>Jacket || Sunglasses and Accessories</h3>
+                        <h3>Watches | Sunglasses and Accessories</h3>
                      </Carousel.Caption>
                </Carousel.Item>
             </Carousel>
@@ -64,7 +74,11 @@ class Men extends Component {
          
 
          {/* Products renderer */}
-         {displayProducts}
+
+         <div className="displayProducts">
+            {displayProducts}
+            
+         </div>
 
 
 

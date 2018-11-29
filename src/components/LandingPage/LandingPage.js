@@ -13,7 +13,7 @@ class LandingPage extends Component {
                   <div className="carousel-item" style={{backgroundImage: 'url(Images/gal1.jpg)'}} />
                      <Carousel.Caption>
                         <h1>GOTHIC APPAREL</h1>
-                        <h3>Features London Winter Collection</h3>
+                        <h3>London Winter Collection</h3>
                      </Carousel.Caption>
                </Carousel.Item>
                <Carousel.Item>
@@ -34,7 +34,7 @@ class LandingPage extends Component {
                <div className="carousel-item" style={{backgroundImage: 'url(Images/men1.jpg)'}} />
                      <Carousel.Caption>
                         <h1>GOTHIC APPAREL</h1>
-                        <h3>Men Black Leather Classic Collection</h3>
+                        <h3>Men's Casual Jacket and Coates</h3>
                      </Carousel.Caption>
                </Carousel.Item>
                <Carousel.Item>
@@ -45,38 +45,38 @@ class LandingPage extends Component {
                      </Carousel.Caption>
                </Carousel.Item>
                <Carousel.Item>
-               <div className="carousel-item" style={{backgroundImage: 'url(Images/gal6.jpg)'}} />
+               <div className="carousel-item" style={{backgroundImage: 'url(Images/gal6.png)'}} />
                      <Carousel.Caption>
                         <h1>GOTHIC APPAREL</h1>
-                        <h3>Women Athletic Pants And Bottoms</h3>
+                        <h3>Rugged Evening Wear</h3>
                      </Carousel.Caption>
                </Carousel.Item>
                <Carousel.Item>
-               <div className="carousel-item" style={{backgroundImage: 'url(Images/gal8.jpg)'}} />
+               <div className="carousel-item" style={{backgroundImage: 'url(Images/men7.jpg)'}} />
                      <Carousel.Caption>
                         <h1>GOTHIC APPAREL</h1>
-                        <h3>Women Accessories Statement Jewelries</h3>
+                        <h3>Business Casual Attire for Men and Women</h3>
                      </Carousel.Caption>
                </Carousel.Item>    
                <Carousel.Item>
                <div className="carousel-item" style={{backgroundImage: 'url(Images/gal5.jpg)'}} />
                      <Carousel.Caption>
                         <h1>GOTHIC APPAREL</h1>
-                        <h3>Gal Casual Riding Attire</h3>
+                        <h3>Gal Casual Attire</h3>
                      </Carousel.Caption>
                </Carousel.Item>   
                <Carousel.Item>
-               <div className="carousel-item" style={{backgroundImage: 'url(Images/gal9.jpg)'}} />
+               <div className="carousel-item" style={{backgroundImage: 'url(Images/accs9.jpg)'}} />
                      <Carousel.Caption>
                         <h1>GOTHIC APPAREL</h1>
-                        <h3>Women Leather Collection L.A. Style</h3>
+                        <h3>Women's Accessories</h3>
                      </Carousel.Caption>
                </Carousel.Item>
                <Carousel.Item>
-               <div className="carousel-item" style={{backgroundImage: 'url(Images/gagal10.png)'}} />
+               <div className="carousel-item" style={{backgroundImage: 'url(Images/gal10.jpg)'}} />
                      <Carousel.Caption>
                         <h1>GOTHIC APPAREL</h1>
-                        <h3>Studded Lady Leather Collection</h3>
+                        <h3>Ladies Leather Collection</h3>
                      </Carousel.Caption>
                </Carousel.Item>    
 

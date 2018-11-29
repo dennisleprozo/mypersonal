@@ -4,3 +4,12 @@
    align-content: space-evenly;
    height: 50%;
  }
+
+.displayProducts {
+   flex-wrap: wrap;
+   border: 1px solid black;
+   padding: 50px;
+   align-content: center
+
+}
+

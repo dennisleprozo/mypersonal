@@ -64,23 +64,22 @@ class Navigation extends Component {
                 <MenuItem eventKey={1.1}>
                  FEATURED{" "}
                 </MenuItem>
-
+                <MenuItem divider />
                 <MenuItem eventKey={1.2}>
-                  <i class="fa fa-angle-right" aria-hidden="true" /> 
-                    <Link to="/men">
-                      TORSO
-                    </Link>
+                  <Link to="/men">
+                    TORSO
+                  </Link>
                 </MenuItem>
 
                 <MenuItem eventKey={1.3}>
-                  <i class="fa fa-angle-right" aria-hidden="true" /> 
+                  
                     <Link to="/men">
                       LEGS{" "}
                     </Link>  
                 </MenuItem>
 
                 <MenuItem eventKey={1.4}>
-                  <i class="fa fa-angle-right" aria-hidden="true" />    
+                     
                     <Link to="/men">
                       ACCESSORIES{" "}
                     </Link>  
@@ -94,9 +93,10 @@ class Navigation extends Component {
                 title="WOMEN"
               >
                 <MenuItem eventKey={2.1}>FEATURED</MenuItem>
-                <MenuItem eventKey={2.2}><i class="fa fa-angle-right" aria-hidden="true" />TOP</MenuItem>
-                <MenuItem eventKey={2.3}><i class="fa fa-angle-right" aria-hidden="true" />LEGS</MenuItem>
-                <MenuItem eventKey={2.4}><i class="fa fa-angle-right" aria-hidden="true" />ACCESSORIES</MenuItem>
+                <MenuItem divider />
+                <MenuItem eventKey={2.2}>TOP</MenuItem>
+                <MenuItem eventKey={2.3}>LEGS</MenuItem>
+                <MenuItem eventKey={2.4}>ACCESSORIES</MenuItem>
               </NavDropdown>
               <NavDropdown
                 noCaret
@@ -105,9 +105,10 @@ class Navigation extends Component {
                 title="ACCESSORIES"
               >
                 <MenuItem eventKey={3.1}>FEATURED</MenuItem>
-                <MenuItem eventKey={3.2}><i class="fa fa-angle-right" aria-hidden="true" />MEN</MenuItem>
-                <MenuItem eventKey={3.3}><i class="fa fa-angle-right" aria-hidden="true" />WOMEN</MenuItem>
-                <MenuItem eventKey={3.4}><i class="fa fa-angle-right" aria-hidden="true" />ACCESSORIES</MenuItem>
+                <MenuItem divider />
+                <MenuItem eventKey={3.2}>MEN</MenuItem>
+                <MenuItem eventKey={3.3}>WOMEN</MenuItem>
+                <MenuItem eventKey={3.4}>ACCESSORIES</MenuItem>
               </NavDropdown>
               <NavDropdown
                 noCaret
@@ -116,9 +117,10 @@ class Navigation extends Component {
                 title="HOTLIST"
               >
                 <MenuItem eventKey={4.1}>FEATURED</MenuItem>
-                <MenuItem eventKey={4.2}><i class="fa fa-angle-right" aria-hidden="true" />MEN</MenuItem>
-                <MenuItem eventKey={4.3}><i class="fa fa-angle-right" aria-hidden="true" />WOMEN</MenuItem>
-                <MenuItem eventKey={4.4}><i class="fa fa-angle-right" aria-hidden="true" />ACCESSORIES</MenuItem>
+                <MenuItem divider />
+                <MenuItem eventKey={4.2}>MEN</MenuItem>
+                <MenuItem eventKey={4.3}>WOMEN</MenuItem>
+                <MenuItem eventKey={4.4}>ACCESSORIES</MenuItem>
               </NavDropdown>
 
               <NavItem eventKey={5} href="http://localhost:3000/about">
@@ -169,17 +171,13 @@ class Navigation extends Component {
                </Nav>
                
                <Nav pullRight>
-                  <NavItem eventKey={3} href="http://localhost:3000/storelocator">Store Locator</NavItem>
-                  <NavItem eventKey={4} href="http://localhost:3000/faq">FAQ</NavItem>
-                  <NavItem eventKey={5} ><Login/></NavItem>
-                  <NavItem eventKey={6} ><SignUp/></NavItem>
-                  <NavItem eventKey={7} href="http://localhost:3000/contact">Contact</NavItem>
+                  <NavItem eventKey={3} href="http://localhost:3000/#/locator">Store Locator</NavItem>
+                  <NavItem eventKey={4} href="http://localhost:3000/#/faq">FAQ</NavItem>
+                  <NavItem eventKey={5}> <Login/> </NavItem>
+                  <NavItem eventKey={6}> <SignUp/> </NavItem>
+                  <NavItem eventKey={7} href="http://localhost:3000/#/contact">Contact</NavItem>
                </Nav>
             </Navbar>
-
-
-
-
 
       </div> //end div
     ); //return

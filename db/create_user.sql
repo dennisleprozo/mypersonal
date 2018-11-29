@@ -1,10 +1,10 @@
-insert into users
+INSERT INTO users
 (
     user_name, 
     email, 
     picture, 
     auth_id
 )
-values
+VALUES
 ($1, $2, $3, $4)
 returning *;
