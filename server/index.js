@@ -58,13 +58,15 @@ app.get('/auth/callback', async (req, res) =>{
     }
     console.log(payload)
     console.log(REACT_APP_DOMAIN)
-
-
-// waiting...
-
-
+    console.log('before token')
+    
+    
+    // waiting...
+    
+    
     // posts code in payload, wait for token
     let resWithToken = await axios.post(`https://${REACT_APP_DOMAIN}/oauth/token`, payload)
+    console.log('after token')
     // response with token
     console.log(resWithToken.data);
 
@@ -90,7 +92,7 @@ app.get('/auth/callback', async (req, res) =>{
         }
     
     } catch(err) {
-        // console.log('error handling in progress', err)
+        console.log('error handling in progress', err)
     }
 
 })
