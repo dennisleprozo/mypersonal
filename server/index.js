@@ -89,7 +89,7 @@ app.get('/auth/callback', async (req, res) =>{
         }
     
     } catch(err) {
-        console.log('error handling in progress', err)
+        // console.log('error handling in progress', err)
     }
 
 })
