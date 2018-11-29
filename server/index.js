@@ -44,6 +44,7 @@ app.use( express.static( `${__dirname}/../build` ) );
 app.get('/auth/callback', async (req, res) =>{
     // uses code from req in payload for a token
     // console.log('test string')
+    console.log('/auth/callback')
     try {
     // try catch error 
     
@@ -55,6 +56,7 @@ app.get('/auth/callback', async (req, res) =>{
         //auth reply to callback
         redirect_uri: `${AUTH0_PROTOCOL}://${req.headers.host}/auth/callback`
     }
+    console.log(payload)
 
 
 // waiting...
@@ -62,7 +64,6 @@ app.get('/auth/callback', async (req, res) =>{
 
     // posts code in payload, wait for token
     let resWithToken = await axios.post(`https://${REACT_APP_DOMAIN}/oauth/token`, payload)
-
     // response with token
     console.log(resWithToken.data);
 
