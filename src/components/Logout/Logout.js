@@ -4,12 +4,11 @@ export default function Logout() {
 
       return (
          <div>
-            <a href='http://localhost:3000/auth/logout'>
-               Log out
-            </a>
-          
+            <a href={process.env.REACT_APP_LOGOUT}>  Log out  </a>
+
          </div>
       );
  
   
 }
+

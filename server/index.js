@@ -6,8 +6,18 @@ const controller = require('./controller');
 
 const axios = require('axios');
 
+const path = require('path'); // Usually moved to the start of file
+
 // app using express
 const app = express();
+
+// points server to front end static files
+app.get('*', (req, res)=>{
+    res.sendFile(path.join(__dirname, '../build/index.html'));
+});
+
+
+
 
 app.use(express.json());
 
