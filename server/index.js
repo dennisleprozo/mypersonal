@@ -57,6 +57,7 @@ app.get('/auth/callback', async (req, res) =>{
         redirect_uri: `${AUTH0_PROTOCOL}://${req.headers.host}/auth/callback`
     }
     console.log(payload)
+    console.log(REACT_APP_DOMAIN)
 
 
 // waiting...
