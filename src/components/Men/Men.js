@@ -23,8 +23,10 @@ class Men extends Component {
    }
 
     addToCart(product){
+       
       console.log('product', product)
       console.log(`Added ${product.prod_name} to order. `)
+
       axios.post('/add', product).then(res => {
          console.log(res.data)
       })

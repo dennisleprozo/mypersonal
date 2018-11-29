@@ -2,13 +2,13 @@ require("dotenv").config();
 const express = require("express");
 const session = require('express-session');
 const massive = require('massive');
-const bodyParser = require("body-parser");
 const controller = require('./controller');
 
 const axios = require('axios');
 
 // app using express
 const app = express();
+
 app.use(express.json());
 
 // destruct process.env
@@ -16,11 +16,9 @@ const { SERVER_PORT, MASSIVE_CONNECTION, SESSION_SECRET,
         REACT_APP_CLIENT_ID, REACT_APP_DOMAIN,
         CLIENT_SECRET, NODE_ENV, AUTH0_PROTOCOL } = process.env;
 
-
-
 massive(MASSIVE_CONNECTION).then(db => {
     app.set('db', db);
-    console.log('massive db is set')
+    console.log('DB is set...')
 }) 
 
 // middleware session 
@@ -31,7 +29,13 @@ app.use(session({
     })
 );
 
-
+app.use(async (req, res, next) => {
+    if(NODE_ENV === 'dev') {
+        const user = await req.app.get('db').find_user(['google-oauth2|111689734529128927950']);
+        req.session.user = user[0];
+    }
+    next();
+});
 
 
 // get auth0  endpoint
@@ -81,7 +85,6 @@ app.get('/auth/callback', async (req, res) =>{
             res.redirect('/dashboard')
         }
     
-
     } catch(err) {
         console.log('error handling in progress', err)
     }
@@ -118,10 +121,10 @@ function envCheck(req, res, next) {
 
 
 //-- products endpoints --//
-app.get('/api/get_all_products', controller.read)
+app.get('/api/getAll', controller.read)
 
 // addToCart endpoints
-
+app.post('/api/cart/:prodId', controller.addToCart)
 
 
 

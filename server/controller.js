@@ -10,11 +10,12 @@ module.exports = {
 
    addToCart: (req, res, next) => {
       const db = req.app.get('db');
-      const { prod_id } = req.params
+      const { prodId } = req.params
       const { users_id } = req.session.user
+      console.log(prodId, users_id)
 
-      db.add_to_cart([prod_id, users_id, 1]).then(() => {
-          db.get_user_cart([users_id]).then(cart => {
+      db.cart.add_to_cart([prodId, users_id, 1]).then(() => {
+          db.cart.get_user_cart([users_id]).then(cart => {
               res.status(200).send(cart)
           })
       })
