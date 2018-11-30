@@ -42,7 +42,7 @@ class Navigation extends Component {
 
 
 
-  
+
 
   render() {
     return (
@@ -155,11 +155,22 @@ class Navigation extends Component {
                 </span>
               </NavItem>
 
+
+
+
+
               <NavItem eventKey={8}>
                 <span className="fa_cart">
-                  <i className="fas fa-cart-arrow-down" placement="left" />
+                  <Link to="/cart">
+                   <i className="fas fa-cart-arrow-down" placement="left" />
+                  </Link>
                 </span>
               </NavItem>
+
+
+
+
+              
             </Nav>
           </Navbar>
 

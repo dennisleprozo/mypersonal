@@ -8,6 +8,7 @@ import Navigation from './Navigation/Navigation';
 import Contact from './Contact/Contact';
 import StoreLocator from './StoreLocator/StoreLocator';
 import FAQ from './FAQ/FAQ';
+import Cart from './Cart/Cart';
 
 export default (
    <Switch>
@@ -19,6 +20,8 @@ export default (
       <Route  path ='/contact' component={Contact}/>
       <Route  path ='/locator' component={StoreLocator}/>
       <Route  path ='/faq' component={FAQ}/>
+      <Route  path ='/cart' component={Cart}/>
+
    </Switch>
 )
 

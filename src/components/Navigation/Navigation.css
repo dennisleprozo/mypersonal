@@ -17,7 +17,7 @@
  
  .fa_search {
    font-size: 16px;
-   color: rgb(59, 78, 110);
+   color: rgb(88, 122, 181);
    display: flex;
    position: absolute;
    top: 20px;
@@ -27,7 +27,7 @@
  
  .fa_cart {
    font-size: 28px;
-   color: rgb(13, 22, 37);
+   color: rgb(10, 51, 255);
    padding: 0px;
    display: flex;
    position: relative;
