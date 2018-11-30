@@ -25,7 +25,7 @@ export default class Cart extends Component {
       return (
         <Alert bsStyle="info" onDismiss={this.handleDismiss}>
           <h3>Shopping Cart</h3>
-          <h4> Subtotal: $ 0.00</h4>
+          <h4>  Subtotal: $ 0.00   </h4>
           <p>
             <Button> 
                <Link to='/#/'> 
@@ -33,8 +33,10 @@ export default class Cart extends Component {
                </Link>
             </Button>
 
-            <Button bsStyle="info" onClick={this.handleDismiss}> 
-               Checkout
+            <Button bsStyle="info" onClick={this.handleDismiss}>
+               <Link to='/#/takemoney'> 
+                  Checkout
+               </Link>
             </Button>
           </p>
         </Alert>
