@@ -55,11 +55,9 @@ app.get('/auth/callback', async (req, res) =>{
         //auth reply to callback
         redirect_uri: `${AUTH0_PROTOCOL}://${req.headers.host}/auth/callback`
     }
-    
-    
+        
     // waiting...
-    
-    
+        
     // posts code in payload, wait for token
     let resWithToken = await axios.post(`https://${REACT_APP_DOMAIN}/oauth/token`, payload)
     // response with token
@@ -89,8 +87,6 @@ app.get('/auth/callback', async (req, res) =>{
     }
 
 })
-
-
 
 function envCheck(req, res, next) {
     if (NODE_ENV === 'dev') {
@@ -126,6 +122,15 @@ app.get('/api/getAll', controller.read)
 
 // addToCart endpoints
 app.post('/api/cart/:prodId', controller.addToCart)
+
+
+
+
+
+
+
+
+
 
 
 

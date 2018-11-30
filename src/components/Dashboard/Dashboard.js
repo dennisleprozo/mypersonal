@@ -42,7 +42,4 @@ function mapStateToProps(state) {
   return { user };
 }
 
-export default connect(
-  mapStateToProps,
-  { updateUser }
-)(Dashboard);
+export default connect( mapStateToProps, { updateUser } )(Dashboard);

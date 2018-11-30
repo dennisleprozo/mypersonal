@@ -15,8 +15,6 @@ import {
   FormControl
 } from "react-bootstrap";
 
-
-
 class Navigation extends Component {
   constructor(props, context) {
     super(props, context);
@@ -36,9 +34,15 @@ class Navigation extends Component {
     return null;
   }
 
+
+  
   handleChange(e) {
     this.setState({ value: e.target.value });
   }
+
+
+
+  
 
   render() {
     return (
