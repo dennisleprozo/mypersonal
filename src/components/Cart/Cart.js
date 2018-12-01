@@ -24,20 +24,19 @@ export default class Cart extends Component {
     if (this.state.show) {
       return (
         <Alert bsStyle="info" onDismiss={this.handleDismiss}>
-          <h3>Shopping Cart</h3>
-          <h4>  Subtotal: $ 0.00   </h4>
-          <p>
-            <Button> 
+          <h3> Shopping Cart</h3>
+          <h4> Subtotal: $ 0.00   </h4>
+          <p> <Button> 
                <Link to='/#/'> 
                   Shop More 
                </Link>
-            </Button>
+              </Button>
 
-            <Button bsStyle="info" onClick={this.handleDismiss}>
-               <Link to='/#/takemoney'> 
+              <Button bsStyle="info" onClick={this.handleDismiss}>
+               <Link to='/takemoney'> 
                   Checkout
                </Link>
-            </Button>
+              </Button>
           </p>
         </Alert>
       );

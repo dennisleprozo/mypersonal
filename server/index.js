@@ -3,6 +3,8 @@ const express = require("express");
 const session = require('express-session');
 const massive = require('massive');
 const controller = require('./controller');
+const stripectrl = require('./stripectrl');
+
 
 const axios = require('axios');
 
@@ -120,11 +122,11 @@ function envCheck(req, res, next) {
 //-- products endpoints --//
 app.get('/api/getAll', controller.read)
 
-// addToCart endpoints
+//-- addToCart endpoints
 app.post('/api/cart/:prodId', controller.addToCart)
 
-
-
+//-- stripe endpoint
+app.post('/api/handlePayment', stripectrl.handlePayment)
 
 
 
