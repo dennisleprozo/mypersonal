@@ -120,13 +120,20 @@ function envCheck(req, res, next) {
 
 
 //-- products endpoints --//
-app.get('/api/getAll', controller.read)
+app.get('/api/getAll', controller.read);
 
 //-- addToCart endpoints
-app.post('/api/cart/:prodId', controller.addToCart)
+app.post('/api/cart/:prodId', controller.addToCart);
 
-//-- stripe endpoint
-app.post('/api/handlePayment', stripectrl.handlePayment)
+//-- Stripe endpoint
+app.post('/api/handlePayment', stripectrl.handlePayment);
+
+// -- Total endpoint
+app.get('/api/getTotal', controller.getTotal);
+
+// -- Cart endpoint
+app.get('/api/get_cart', controller.getCart);
+app.delete('/api/empty_cart', controller.emptyCart);
 
 
 
