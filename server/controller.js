@@ -24,28 +24,32 @@ module.exports = {
       })
    },
 
-//   getTotal: (req, res) => {
-//     const db = req.app.get('db')
-//     const {users_id} = req.session.user
+// JOIN Product & Carts
+  getTotal: (req, res) => {
+    const db = req.app.get('db')
+    const {users_id} = req.session.user
 
-//     db.total_price([users_id]).then(totalPrice => {
-//         res.status(200).send(totalPrice)
-//     })
-//   },
+    db.total_price([users_id]).then(totalPrice => {
+        res.status(200).send(totalPrice)
+    })
+  },
 
+// JOIN Product & Carts with Users.users_id
   getCart: (req, res, next) => {
     const db = req.app.get('db')
     const { users_id } = req.session.user
+
     db.cart.get_user_cart([users_id]).then(cart => {
         res.status(200).send(cart)
     })
   },
 
-  emptyCart: (req, res, next) => {
+// clears cart
+  emptyCart: (req, res) => {
     const db = req.app.get('db')
     const { users_id } = req.session.user
 
-    db.empty_cart([users_id]).then(cart => {
+    db.cart.empty_cart([users_id]).then(cart => {
         res.status(200).send(cart)
     }) 
   },
@@ -53,16 +57,41 @@ module.exports = {
   removeFromCart: (req, res, next) => {
     const db = req.app.get('db');
     const { cartId } = req.params
-    const { user_id } = req.session.user
+    const { users_id } = req.session.user
 
-    db.remove_from_cart([user_id, cartId]).then(() => {
-        db.get_user_cart([user_id]).then(cart => {
+    db.remove_from_cart([users_id, cartId]).then(() => {
+        db.get_user_cart([users_id]).then(cart => {
             res.status(200).send(cart)
 
         })
     })
         .catch(err => console.log(err))
+    },
 
-},
+    decreaseQuantity: (req, res) => {
+        const db = req.app.get('db')
+
+        let { cartId, quantity } = req.params
+        const { users_id } = req.session.user
+        db.decrease_quantity([quantity, cartId, users_id]).then(() => {
+            db.cart.get_user_cart([users_id]).then(cart => {
+                res.status(200).send(cart)
+            })
+        })
+            .catch(err => console.log(err))
+    },
+
+    increaseQuantity: (req, res) => {
+        const db = req.app.get('db');
+
+        let { cartId, quantity } = req.params
+        const { users_id } = req.session.user
+        db.increase_quantity([quantity, cartId, users_id]).then(() => {
+            db.cart.get_user_cart([users_id]).then(cart => {
+                res.status(200).send(cart)
+            })
+        })
+            .catch(err => console.log(err))
+    },
 
 } 

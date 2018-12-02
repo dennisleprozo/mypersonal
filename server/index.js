@@ -129,12 +129,17 @@ app.post('/api/cart/:prodId', controller.addToCart);
 app.post('/api/payment', stripectrl.handlePayment);
 
 // -- Total endpoint
-// app.get('/api/getTotal', controller.getTotal);
+app.get('/api/getTotal', controller.getTotal);
 
 // -- Cart endpoint
 app.get('/api/getCart', controller.getCart);
 app.delete('/api/empty_cart', controller.emptyCart);
-app.delete(`/api/removeCart/:cartId`, controller.removeFromCart)
+app.delete('/api/removeCart/:cartId', controller.removeFromCart)
+
+app.delete('/api/empty_cart', controller.emptyCart);
+
+app.delete('/api/decreaseCart/:cartId/:quantity', controller.decreaseQuantity)
+app.put('/api/increaseCart/:cartId/:quantity', controller.increaseQuantity)
 
 
 
