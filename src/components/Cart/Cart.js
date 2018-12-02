@@ -1,19 +1,21 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 import { updateCart } from '../../dux/reducer'
-import { Alert, Button } from "react-bootstrap";
+import { Alert, Button, Grid, Row, Col, Thumbnail } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 import axios from 'axios';
 import StripeCheckout from 'react-stripe-checkout';
+
+import './Cart.css'
 
 // updateCart in dux
 // take cart component
 // mapStateToProps dux then render cart
  
 class Cart extends Component {
-  constructor(props, context) {
-    super(props, context);
+  constructor(props) {
+    super(props);
     this.state = {
       show: true,
       total: 0
@@ -39,7 +41,7 @@ class Cart extends Component {
         axios.delete('/api/empty_cart')
             .then(() => {
               this.getCart()
-              this.getTotal()
+              // this.getTotal()
         })
     })
   }
@@ -60,39 +62,98 @@ class Cart extends Component {
   }
 
   getCart() {
-    axios.get('/api/get_cart').then(res => {
+    axios.get('/api/getCart').then(res => {
+      console.log(res.data)
         this.props.updateCart(res.data)
     })
   } 
+
+  removeFromCart(cartId) {
+    axios.delete(`/api/remove_from_cart/${cartId}`).then(res => {
+
+        this.props.updateCart(res.data)
+    }).then(this.getTotal())
+}
+
 
 
 
 
 
   render() {
-    if (this.state.show) {
+    // if (this.state.show) {
+    let displayCart = this.props.cart.map((cartItem, i) => {
+
+
+
+
+
       return (
-        <Alert bsStyle="info" onDismiss={this.handleDismiss}>
-          <h3> Shopping Cart</h3>
-          <h4> Subtotal: $ 0.00   </h4>
-          <h3> Shopping List </h3>
-               <Link to='/#/'> 
-                  Shop More 
-               </Link>
+        <div>
+            {/* <h1>{cartItem.name}</h1> */}
+            
+            <Grid>
+                  <Row className='inline-display'>
+                     <Col xs={4} md={2}>
+                        <Thumbnail style={{padding:"20px"}} src={cartItem.img} alt="4x2">
+                          <p>Front View of { cartItem.prod_name }</p>
+                          <p> Price: { cartItem.price }</p>
 
-              
-              <StripeCheckout
-              name='Gothic Apparel'
-              description='Thank you!'
-              token={this.onToken}
-              stripeKey={process.env.REACT_APP_STRIPE_KEY}
-              />
+                              <Button className="btn-props"
+                                 onClick={() => this.handleSizes }
+                                 bsStyle="">
+                                 - 
+                              </Button>
+
+                              <Button className="btn-props"
+                                 onClick={() => this.addToCart(cartItem.prod_id) }
+                                 bsStyle="">
+                                 +
+                              </Button>
+                              
+                              <Button 
+                                 onClick={() => this.addToCart(cartItem.prod_id) }
+                                 bsStyle="primary">
+                                 Delete
+                              </Button>
 
 
-        </Alert>
+                        </Thumbnail>
+                     </Col>
+                  </Row>
+            </Grid>;
+
+        </div>
+
+      )
+    }) 
+
+      return (
+        <div>
+          
+          <Alert bsStyle="info" onDismiss={this.handleDismiss}>
+            <h3> Shopping Cart</h3>
+            <h5> Subtotal: $ 0.00</h5>
+            <h3>  </h3> 
+            
+              {displayCart}
+            {/* Shop More or */}
+                <Link to='/#/' className='nbsp'> Shop More </Link>
+            {/* Stripe Checkout */}
+                <StripeCheckout className='nbsp'
+                name='Gothic Apparel'
+                description='Thank you!'
+                token={this.onToken}
+                stripeKey={process.env.REACT_APP_STRIPE_KEY}
+                />
+
+
+          </Alert>
+        </div>
+
       );
-    }
-    return <Button onClick={this.handleShow}>Stripe</Button>;
+    // }
+    // return <Button onClick={this.handleShow}>Stripe</Button>;
   }
 }
 

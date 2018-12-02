@@ -47,16 +47,18 @@ class Navigation extends Component {
   render() {
     return (
       <div className="dashboard-container">
-          <Navbar className="navbar_font" style={{ margin: 0 }}>
+          <Navbar collapseOnSelect className="navbar_font" style={{ margin: 0 }}>
+
             <Navbar.Header>
               <Navbar.Brand>
-                <Link to="/"> 
-                GOTHIC 
-                APPAREL
-                </Link>
+                <a href="/"> 
+                  GOTHIC 
+                  APPAREL
+                </a>
               </Navbar.Brand>
+              <Navbar.Toggle />    
             </Navbar.Header>
-
+            <Navbar.Collapse>
       {/* Men submenu */}
             <Nav>
               <NavDropdown
@@ -132,6 +134,7 @@ class Navigation extends Component {
 
             <Nav pullRight>
               <NavItem eventKey={6}>
+                {/* form */}
                 <form>
                   <FormGroup
                     controlId="formBasicText"
@@ -155,10 +158,6 @@ class Navigation extends Component {
                 </span>
               </NavItem>
 
-
-
-
-
               <NavItem eventKey={8}>
                 <span className="fa_cart">
                   <Link to="/cart">
@@ -166,31 +165,31 @@ class Navigation extends Component {
                   </Link>
                 </span>
               </NavItem>
-
-
-
-
-              
+ 
             </Nav>
+            </Navbar.Collapse>
           </Navbar>
 
 
 
         {/* sub navbar here */}
-        <Navbar className='sub-nav'>
-               <Nav>
-                  <NavItem eventKey={1} href="http://localhost:3000/shipping">Free shipping on orders over $150. </NavItem>
-                  <NavItem eventKey={2} className='details'style={{fontWeight: "bold", textDecoration:"underline"}}>Details</NavItem>
-               </Nav>
-               
-               <Nav pullRight>
-                  <NavItem eventKey={3} href="http://localhost:3000/#/locator">Store Locator</NavItem>
-                  <NavItem eventKey={4} href="http://localhost:3000/#/faq">FAQ</NavItem>
-                  <NavItem eventKey={5}> <Login/> </NavItem>
-                  <NavItem eventKey={6}> <SignUp/> </NavItem>
-                  <NavItem eventKey={7} href="http://localhost:3000/#/contact">Contact</NavItem>
-               </Nav>
-            </Navbar>
+        <Navbar collapseOnSelect className='sub-nav'>
+          <Navbar.Toggle />
+            <Navbar.Collapse>
+                <Nav>
+                    <NavItem eventKey={1} href="http://localhost:3000/shipping">Free shipping on orders over $150. </NavItem>
+                    <NavItem eventKey={2} className='details'style={{fontWeight: "bold", textDecoration:"underline"}}>Details</NavItem>
+                </Nav>
+                
+                <Nav pullRight>
+                    <NavItem eventKey={3} href="http://localhost:3000/#/locator">Store Locator</NavItem>
+                    <NavItem eventKey={4} href="http://localhost:3000/#/faq">FAQ</NavItem>
+                    <NavItem eventKey={5}> <Login/> </NavItem>
+                    <NavItem eventKey={6}> <SignUp/> </NavItem>
+                    <NavItem eventKey={7} href="http://localhost:3000/#/contact">Contact</NavItem>
+                </Nav>
+            </Navbar.Collapse>
+        </Navbar>
 
       </div> //end div
     ); //return

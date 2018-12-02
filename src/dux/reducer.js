@@ -29,10 +29,10 @@ export function updateUser(userObj) {
 }
 
 //returns action update cart with items payload
-export function updateCart(cartObj) {
+export function updateCart(cart) {
     return {
         type: UPDATE_CART,
-        payload: cartObj
+        payload: cart
     }
 }
 

@@ -1,0 +1,23 @@
+.nbsp {
+   padding: 15px;
+}
+
+inline-display {
+   display: inline-table;
+
+}
+
+.btn-props {
+   width: 50px;
+   background-color: rgb(23, 218, 248); /* Green */
+   border-bottom-color: rgb(0, 0, 0);
+   color: white;
+   padding: 0;
+   border-radius: 5px;
+   text-align: center;
+   text-decoration: none;
+   display: inline-block;
+   font-size: 20px;
+   margin: 1px;
+   cursor: pointer;
+}

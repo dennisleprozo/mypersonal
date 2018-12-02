@@ -46,7 +46,7 @@ class Men extends Component {
             </Carousel>
             <h1 className="men-separator">MEN'S CLOTHING</h1>
          
-            {/* Products renderer */}
+            {/* Render products */}
             <div> 
                <ProductsRenderer />
             </div>
