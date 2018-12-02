@@ -68,14 +68,21 @@ class Cart extends Component {
       this.props.updateCart(res.data);
     });
   }
+
+
+
 // delete item from cart
   removeFromCart(cartId) {
-    axios.delete(`/api/remove_from_cart/${cartId}`)
+    axios.delete(`/api/removeFromCart/${cartId}`)
         .then( res => {
           this.props.updateCart(res.data); 
     })
         .then( this.getTotal() );
   }
+
+
+
+
 
 // decrease number of item in cart
   decreaseQuantity(cartId, quantity) {
@@ -115,9 +122,7 @@ class Cart extends Component {
 
                   <Button
                     className="btn-props"
-                    onClick={() =>
-                      this.decreaseQuantity(cartItem.cart_id, cartItem.quantity)
-                    }
+                    onClick={() => this.decreaseQuantity(cartItem.cart_id, cartItem.quantity)}
                     bsStyle=""
                   >
                     -
@@ -131,7 +136,7 @@ class Cart extends Component {
                     +
                   </Button>
                   <h5>Quantity: {cartItem.quantity}</h5>
-
+{/* remove */}
                   <Button
                     onClick={() => this.removeFromCart(cartItem.cart_id)}
                     bsStyle="danger"
@@ -150,23 +155,24 @@ class Cart extends Component {
       <div>
         <Alert bsStyle="info" onDismiss={this.handleDismiss}>
           <h3> Shopping Cart</h3>
-          <h5> Subtotal: $</h5>{this.state.total}
-          <h3> </h3>
+          <h4> Subtotal: $ {this.state.total}</h4>
 
-          {displayCart}
-          {/* Shop More or */}
-          <Link to="/#/" className="nbsp">
-            {" "}
-            Shop More{" "}
-          </Link>
+          <Link to="/#/" className="nbsp"> <h4> Shop More Items </h4> 
+
           {/* Stripe Checkout */}
-          <StripeCheckout
-            className="nbsp"
-            name="Gothic Apparel"
-            description="Thank you!"
-            token={this.onToken}
-            stripeKey={process.env.REACT_APP_STRIPE_KEY}
-          />
+            <StripeCheckout
+              className="nbsp"
+              name="Gothic Apparel"
+              description="Thank you!"
+              token={this.onToken}
+              stripeKey={process.env.REACT_APP_STRIPE_KEY}
+            />
+            <hr/>
+
+          </Link>
+          
+         {displayCart}
+         
         </Alert>
       </div>
     );

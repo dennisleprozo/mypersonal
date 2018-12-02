@@ -132,9 +132,9 @@ app.post('/api/payment', stripectrl.handlePayment);
 app.get('/api/getTotal', controller.getTotal);
 
 // -- Cart endpoint
-app.get('/api/getCart', controller.getCart);
-app.delete('/api/empty_cart', controller.emptyCart);
-app.delete('/api/removeCart/:cartId', controller.removeFromCart)
+app.get('/api/getCart', controller.getCart); 
+
+app.delete('/api/removeFromCart/:cartId', controller.removeFromCart)
 
 app.delete('/api/empty_cart', controller.emptyCart);
 

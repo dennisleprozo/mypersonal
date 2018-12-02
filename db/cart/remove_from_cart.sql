@@ -1,3 +1,3 @@
 DELETE FROM carts
 WHERE users_id = $1
-AND carts_id = $2;
+AND cart_id = $2;

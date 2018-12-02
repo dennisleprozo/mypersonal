@@ -59,10 +59,9 @@ module.exports = {
     const { cartId } = req.params
     const { users_id } = req.session.user
 
-    db.remove_from_cart([users_id, cartId]).then(() => {
-        db.get_user_cart([users_id]).then(cart => {
+    db.cart.remove_from_cart([users_id, cartId]).then(() => {
+        db.cart.get_user_cart([users_id]).then(cart => {
             res.status(200).send(cart)
-
         })
     })
         .catch(err => console.log(err))
