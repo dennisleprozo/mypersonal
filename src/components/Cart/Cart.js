@@ -73,7 +73,7 @@ class Cart extends Component {
 
 // delete item from cart
   removeFromCart(cartId) {
-    axios.delete(`/api/removeFromCart/${cartId}`)
+    axios.delete(`/api/removeFromCart   /${cartId}`)
         .then( res => {
           this.props.updateCart(res.data); 
     })
