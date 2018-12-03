@@ -1,0 +1,84 @@
+body, html{
+   height:100%;
+   margin:0;
+   font-size:16px;
+   font-family:"Lato", sans-serif;
+   font-weight:400;
+   line-height:1.8em;
+   color:#666;
+ }
+ 
+ .pimg1, .pimg2, .pimg3{
+   position:relative;
+   opacity:0.80;
+   background-position:center;
+   background-size:cover;
+   background-repeat:no-repeat;
+ 
+   /*
+     fixed = parallax
+     scroll = normal
+   */
+   background-attachment:fixed;
+ }
+ 
+ .pimg1{
+   background-image:url('https://shop.diesel.com/on/demandware.static/-/Library-Sites-Diesel/default/dw4779bf54/Holiday/2018_Partywear_Slide03.jpg');
+   min-height:600px;
+ }
+ 
+ .pimg2{
+   background-image:url('https://shop.diesel.com/on/demandware.static/-/Library-Sites-Diesel/default/dw8547c1b3/Holiday/2018_Partywear_Slide01.jpg');
+   min-height:600px;
+ }
+ 
+ .pimg3{
+   background-image:url('https://shop.diesel.com/on/demandware.static/-/Library-Sites-Diesel/default/dw140f5045/Holiday/2018_Partywear_Slide02.jpg');
+   min-height:600px;
+ }
+ 
+ .section{
+   text-align:center;
+   padding:50px 80px;
+ }
+ 
+ .section-light{
+   background-color:#f4f4f4;
+   color:#666;
+   padding-top: 100px;
+ }
+ 
+ .section-dark{
+   background-color:#282e34;
+   color:#ddd;
+ }
+ 
+ .ptext{
+   position:absolute;
+   top:50%;
+   width:100%;
+   text-align:center;
+   color:#000;
+   font-size:20px;
+   letter-spacing:8px;
+   text-transform:uppercase;
+   padding-top: 25px;
+ }
+ 
+ .ptext .border{
+   background-color:rgb(240, 61, 61);
+   color:#fff;
+   padding: 15px;
+
+ }
+ 
+ .ptext .border.trans{
+   background-color:transparent;
+ }
+ 
+ @media(max-width:568px){
+   .pimg1, .pimg2, .pimg3{
+     background-attachment:scroll;
+   }
+ }
+ 

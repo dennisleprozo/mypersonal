@@ -79,10 +79,13 @@ class LandingPage extends Component {
                         <h3>Ladies Leather Collection</h3>
                      </Carousel.Caption>
                </Carousel.Item>    
-
              </Carousel>
 
          // </div>
+
+
+
+         
       );
    }
 }

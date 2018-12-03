@@ -2,8 +2,9 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { updateUser } from "../../dux/reducer";
 import Navigation from '../Navigation/Navigation'
-import "../Dashboard/Dashboard.css";
 import LandingPage from "../LandingPage/LandingPage";
+import "../Dashboard/Dashboard.css";
+import MyParallax from "../MyParallax/MyParallax";
 
 class Dashboard extends Component {
   constructor(props, context) {
@@ -32,6 +33,9 @@ class Dashboard extends Component {
       <div>
           <Navigation />
           <LandingPage />
+
+  {/* still work in progress */}
+          <MyParallax />
       </div> //end div
     ); //return
   } //render

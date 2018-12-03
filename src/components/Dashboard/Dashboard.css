@@ -40,3 +40,37 @@
 .navbar {
    margin: 0;
 }
+
+@media (max-width: 1200px) {
+  .dashboard-container  {
+    padding-top: 130px;
+  }
+}
+
+@media (max-width: 992px) {
+  .dashboard-container  {
+    padding-top: 80px;
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-container  {
+    padding-top: 50px;
+  }
+}
+
+@media (max-width: 600px) {
+  .dashboard-container 
+  {
+    padding-top: 50px;
+    padding-bottom: 0px;
+  }
+}
+
+@media (max-width: 414px) {
+  .dashboard-container 
+  {
+    padding-top: 50px;
+    padding-bottom: 0px;
+  }
+}

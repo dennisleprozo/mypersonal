@@ -122,7 +122,7 @@ function envCheck(req, res, next) {
 //-- products endpoints --//
 app.get('/api/getAll', controller.read);
 
-//-- addToCart endpoints
+//-- addToCart items endpoints
 app.post('/api/cart/:prodId', controller.addToCart);
 
 //-- Stripe endpoint
@@ -131,18 +131,18 @@ app.post('/api/payment', stripectrl.handlePayment);
 // -- Total endpoint
 app.get('/api/getTotal', controller.getTotal);
 
-// -- Cart endpoint
+// -- Cart endpoints
 app.get('/api/getCart', controller.getCart); 
 
+// -- delete item
 app.delete('/api/removeFromCart/:cartId', controller.removeFromCart)
-
+// -- delete all items in cart upon payment
 app.delete('/api/empty_cart', controller.emptyCart);
 
+// -- delete quantity of item
 app.delete('/api/decreaseCart/:cartId/:quantity', controller.decreaseQuantity)
+// -- add quantity updates the state
 app.put('/api/increaseCart/:cartId/:quantity', controller.increaseQuantity)
-
-
-
 
 app.listen(SERVER_PORT, () =>
     console.log(`Eavesdropping on SERVER_PORT ${SERVER_PORT}...`)

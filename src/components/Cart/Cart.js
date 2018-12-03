@@ -14,7 +14,7 @@ import "./Cart.css";
 // mapStateToProps dux then render cart
 
 class Cart extends Component {
-  constructor(props) {
+  constructor(props) { 
     super(props);
     this.state = {
       show: true,

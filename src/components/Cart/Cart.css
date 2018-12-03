@@ -2,12 +2,6 @@
    padding: 15px;
 }
 
-.inline-display {
-   display: flex;
-
-
-}
-
 .btn-props {
    width: 50px;
    background-color: rgb(22, 102, 214); /* Green */

@@ -4,7 +4,7 @@ import { updateUser } from "../../dux/reducer";
 import { Link } from 'react-router-dom';
 import Login from '../Login/Login';
 import SignUp from '../SignUp/SignUp';
-import "../Dashboard/Dashboard.css";
+import "../Navigation/Navigation.css";
 import {
   Nav,
   Navbar,
@@ -34,27 +34,22 @@ class Navigation extends Component {
     return null;
   }
 
-
-  
   handleChange(e) {
     this.setState({ value: e.target.value });
   }
 
-
-
-
-
   render() {
     return (
       <div className="dashboard-container">
+      
           <Navbar collapseOnSelect className="navbar_font" style={{ margin: 0 }}>
 
             <Navbar.Header>
               <Navbar.Brand>
-                <a href="/"> 
+                <Link to="/"> 
                   GOTHIC 
                   APPAREL
-                </a>
+                </Link>
               </Navbar.Brand>
               <Navbar.Toggle />    
             </Navbar.Header>
@@ -127,7 +122,9 @@ class Navigation extends Component {
                 <MenuItem eventKey={4.4}>ACCESSORIES</MenuItem>
               </NavDropdown>
 
-              <NavItem eventKey={5} href="http://localhost:3000/about">
+
+
+              <NavItem eventKey={5} Link to="/about">
                 ABOUT{" "}
               </NavItem>
             </Nav>
@@ -177,16 +174,16 @@ class Navigation extends Component {
           <Navbar.Toggle />
             <Navbar.Collapse>
                 <Nav>
-                    <NavItem eventKey={1} href="http://localhost:3000/shipping">Free shipping on orders over $150. </NavItem>
+                    <NavItem eventKey={1} Link to="/shipping">Free shipping on orders over $150. </NavItem>
                     <NavItem eventKey={2} className='details'style={{fontWeight: "bold", textDecoration:"underline"}}>Details</NavItem>
                 </Nav>
                 
                 <Nav pullRight>
-                    <NavItem eventKey={3} href="http://localhost:3000/#/locator">Store Locator</NavItem>
-                    <NavItem eventKey={4} href="http://localhost:3000/#/faq">FAQ</NavItem>
+                    <NavItem eventKey={3} Link to="/locator"> Store Locator </NavItem>
+                    <NavItem eventKey={4} Link to="/faq"> FAQ </NavItem>
                     <NavItem eventKey={5}> <Login/> </NavItem>
                     <NavItem eventKey={6}> <SignUp/> </NavItem>
-                    <NavItem eventKey={7} href="http://localhost:3000/#/contact">Contact</NavItem>
+                    <NavItem eventKey={7} Link to="/contact"> Contact </NavItem>
                 </Nav>
             </Navbar.Collapse>
         </Navbar>
