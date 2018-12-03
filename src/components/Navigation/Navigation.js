@@ -41,14 +41,14 @@ class Navigation extends Component {
   render() {
     return (
       <div className="dashboard-container">
-      
+
           <Navbar collapseOnSelect className="navbar_font" style={{ margin: 0 }}>
 
             <Navbar.Header>
               <Navbar.Brand>
-                <Link to="/"> 
-                  GOTHIC 
-                  APPAREL
+                <Link to="/" className="apparel"> 
+                  <span>GOTHIC</span> APPAREL
+                  
                 </Link>
               </Navbar.Brand>
               <Navbar.Toggle />    

@@ -1,4 +1,20 @@
 /* CSS for Dashboard navbar */
+
+.apparel {
+font: 23px serif;
+color: rgb(5, 5, 5);
+font-stretch: expanded;
+padding-top: 12px
+}
+
+span {
+  font: 1em serif;
+  color: rgb(216, 47, 47);
+  font-stretch: expanded;
+  /* font-family:  */
+}
+
+
 .form_align {
    padding: 10px;
    margin: 0px;
@@ -7,10 +23,11 @@
  .navbar_font {
    width: 100%;
    position: fixed;
-   top: 0;
+   top: 0px;
    z-index: 10;
    color: black;
    background-color: rgb(10, 43, 73);
+
  }
  
  .fa_search {
