@@ -125,6 +125,8 @@ app.get('/api/getAll', controller.read);
 //-- addToCart items endpoints
 app.post('/api/cart/:prodId', controller.addToCart);
 
+
+
 //-- Stripe endpoint
 app.post('/api/payment', stripectrl.handlePayment);
 
@@ -134,10 +136,14 @@ app.get('/api/getTotal', controller.getTotal);
 // -- Cart endpoints
 app.get('/api/getCart', controller.getCart); 
 
+
+
 // -- delete item
 app.delete('/api/removeFromCart/:cartId', controller.removeFromCart)
-// -- delete all items in cart upon payment
+
+// -- delete all items in cart upon stripe checkout
 app.delete('/api/empty_cart', controller.emptyCart);
+
 
 // -- delete quantity of item
 app.delete('/api/decreaseCart/:cartId/:quantity', controller.decreaseQuantity)

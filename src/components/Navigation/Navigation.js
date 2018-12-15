@@ -124,9 +124,10 @@ class Navigation extends Component {
 
 
 
-              <NavItem eventKey={5} Link to="/about">
-                ABOUT{" "}
+              <NavItem eventKey={5}>
+                <Link to="/about"> ABOUT </Link>
               </NavItem>
+
             </Nav>
 
             <Nav pullRight>

@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { updateCart } from "../../dux/reducer";
 import { Alert, Button, Grid, Row, Col, Thumbnail } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import Navigation from '../Navigation/Navigation';
 
 import axios from "axios";
 import StripeCheckout from "react-stripe-checkout";
@@ -32,6 +33,7 @@ class Cart extends Component {
     this.setState({ show: true });
   }
 
+  //stripe token request
   onToken = token => {
     token.card = void 0;
     axios
@@ -41,6 +43,7 @@ class Cart extends Component {
       })
       .then(res => {
         console.log(res);
+
         axios.delete("/api/empty_cart").then(() => {
           this.getCart();
           // this.getTotal()
@@ -52,6 +55,8 @@ class Cart extends Component {
     this.getTotal();
     this.getCart();
   }
+
+
 // sum price item in cart
   getTotal() {
     axios.get('/api/getTotal').then(res => {
@@ -69,8 +74,6 @@ class Cart extends Component {
     });
   }
 
-
-
 // delete item from cart
   removeFromCart(cartId) {
     axios.delete(`/api/removeFromCart/${cartId}`)
@@ -79,10 +82,6 @@ class Cart extends Component {
     })
         .then( this.getTotal() );
   }
-
-
-
-
 
 // decrease number of item in cart
   decreaseQuantity(cartId, quantity) {
@@ -153,6 +152,7 @@ class Cart extends Component {
 
     return (
       <div>
+        <Navigation />
         <Alert bsStyle="info" onDismiss={this.handleDismiss}>
           <h3> Shopping Cart</h3>
           <h4> Subtotal: $ {this.state.total}</h4>
@@ -162,6 +162,7 @@ class Cart extends Component {
           {/* Stripe Checkout */}
             <StripeCheckout
               className="nbsp"
+              // stripe header
               name="Gothic Apparel"
               description="Thank you!"
               token={this.onToken}
